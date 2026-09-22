@@ -15,6 +15,7 @@ dev = [
 srp = "solid.single_responsibility.main:main"
 ocp = "solid.open_closed.main:main"
 lsp = "solid.liskov.main:main"
+isp = "solid.interface_segregation.main:main"
 
 [build-system]
 requires = ["hatchling"]

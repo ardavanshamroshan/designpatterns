@@ -22,6 +22,7 @@ uv sync
 uv run srp
 uv run ocp
 uv run lsp
+uv run isp
 ```
 
 ## SOLID
@@ -31,5 +32,5 @@ uv run lsp
 | **S** — Single Responsibility | [`solid/single_responsibility/`](solid/single_responsibility/) | Ready | `uv run srp` |
 | **O** — Open/Closed | [`solid/open_closed/`](solid/open_closed/) | Ready | `uv run ocp` |
 | **L** — Liskov Substitution | [`solid/liskov/`](solid/liskov/) | Ready | `uv run lsp` |
-| **I** — Interface Segregation | — | Planned | — |
+| **I** — Interface Segregation | [`solid/interface_segregation/`](solid/interface_segregation/) | Ready | `uv run isp` |
 | **D** — Dependency Inversion | — | Planned | — |
