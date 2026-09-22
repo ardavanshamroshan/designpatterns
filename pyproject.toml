@@ -16,6 +16,7 @@ srp = "solid.single_responsibility.main:main"
 ocp = "solid.open_closed.main:main"
 lsp = "solid.liskov.main:main"
 isp = "solid.interface_segregation.main:main"
+dip = "solid.dependency_inversion.main:main"
 
 [build-system]
 requires = ["hatchling"]

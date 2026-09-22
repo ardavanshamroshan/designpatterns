@@ -49,7 +49,7 @@ export default defineConfig({
           { text: 'Open / Closed', link: '/solid/ocp' },
           { text: 'Liskov Substitution', link: '/solid/lsp' },
           { text: 'Interface Segregation', link: '/solid/isp' },
-          { text: 'Dependency Inversion', link: '/solid/#dependency-inversion' },
+          { text: 'Dependency Inversion', link: '/solid/dip' },
         ],
       },
       {

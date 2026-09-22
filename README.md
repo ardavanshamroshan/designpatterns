@@ -23,6 +23,7 @@ uv run srp
 uv run ocp
 uv run lsp
 uv run isp
+uv run dip
 ```
 
 ## SOLID
@@ -33,4 +34,4 @@ uv run isp
 | **O** — Open/Closed | [`solid/open_closed/`](solid/open_closed/) | Ready | `uv run ocp` |
 | **L** — Liskov Substitution | [`solid/liskov/`](solid/liskov/) | Ready | `uv run lsp` |
 | **I** — Interface Segregation | [`solid/interface_segregation/`](solid/interface_segregation/) | Ready | `uv run isp` |
-| **D** — Dependency Inversion | — | Planned | — |
+| **D** — Dependency Inversion | [`solid/dependency_inversion/`](solid/dependency_inversion/) | Ready | `uv run dip` |

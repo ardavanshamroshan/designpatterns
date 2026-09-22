@@ -107,4 +107,4 @@ Algorithms and assignment of responsibilities between objects.
 
 ## Meanwhile
 
-Principles are live now — [Single Responsibility](/solid/srp), [Open/Closed](/solid/ocp), [Liskov Substitution](/solid/lsp), [Interface Segregation](/solid/isp).
+Principles are live now — [SRP](/solid/srp), [OCP](/solid/ocp), [LSP](/solid/lsp), [ISP](/solid/isp), [DIP](/solid/dip).

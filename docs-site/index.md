@@ -13,6 +13,7 @@ title: Home
   <li><a href="./solid/ocp"><strong>Open / Closed</strong><em>Ready · interactive</em></a></li>
   <li><a href="./solid/lsp"><strong>Liskov Substitution</strong><em>Ready · interactive</em></a></li>
   <li><a href="./solid/isp"><strong>Interface Segregation</strong><em>Ready · interactive</em></a></li>
+  <li><a href="./solid/dip"><strong>Dependency Inversion</strong><em>Ready · interactive</em></a></li>
   <li><a href="./solid/"><strong>SOLID hub</strong><em>5 principles</em></a></li>
   <li><a href="./patterns/"><strong>Pattern catalog</strong><em>Creational · Structural · Behavioral</em></a></li>
 </ul>
@@ -51,4 +52,5 @@ uv run srp
 uv run ocp
 uv run lsp
 uv run isp
+uv run dip
 ```
