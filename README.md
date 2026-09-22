@@ -2,15 +2,26 @@
 
 Hands-on Python tutorials for classic **design patterns** and the **SOLID** principles.
 
-Small, runnable examples — one idea per folder. Read the local README, run the script, see the point.
+## Docs
+
+**https://ardavanshamroshan.github.io/designpatterns/**
+
+VitePress site (same reader theme as [Database Engineering](https://ardavanshamroshan.github.io/database-engineering-fundamentals/)):
+
+```bash
+cd docs-site
+npm install
+npm run docs:dev
+```
 
 ## Requirements
 
 - Python **≥ 3.14**
-- [uv](https://docs.astral.sh/uv/) (recommended)
+- [uv](https://docs.astral.sh/uv/)
 
 ```bash
 uv sync
+uv run srp
 ```
 
 ## SOLID
@@ -23,47 +34,6 @@ uv sync
 | **I** — Interface Segregation | — | Planned | — |
 | **D** — Dependency Inversion | — | Planned | — |
 
-### Single Responsibility (SRP)
+## Attribution
 
-A class should have **one primary reason to change**.
-
-- Tutorial: [`solid/single_responsibility/README.md`](solid/single_responsibility/README.md)
-- Code: [`solid/single_responsibility/main.py`](solid/single_responsibility/main.py)
-
-```bash
-uv run srp
-```
-
-`Journal` manages entries. `PersistenceManager` saves to `journal.txt`. Two concerns, two classes.
-
-## Project layout
-
-```text
-designpatterns/
-├── solid/
-│   └── single_responsibility/
-│       ├── README.md      # tutorial
-│       ├── main.py        # example
-│       └── journal.txt    # sample output from a run
-├── main.py
-├── pyproject.toml
-└── README.md              # this file
-```
-
-## Docs site
-
-Interactive GitHub Pages docs (dark / light, quizzes, code compare):
-
-**https://ardavanshamroshan.github.io/designpatterns/**
-
-Source lives in [`docs/`](docs/). Local preview:
-
-```bash
-cd docs && python -m http.server 8080
-```
-
-Then open `http://127.0.0.1:8080`.
-
-## License
-
-Educational use. Add a license file when you publish for others.
+Guru illustrations: see [docs-site/attribution.md](docs-site/attribution.md) (≤10 under their usage policy).

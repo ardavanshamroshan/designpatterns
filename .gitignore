@@ -8,3 +8,9 @@ wheels/
 
 # Virtual environments
 .venv
+
+# VitePress build output (deployed by GitHub Actions)
+docs/
+docs-site/node_modules/
+docs-site/.vitepress/cache/
+docs-site/.vitepress/dist/
