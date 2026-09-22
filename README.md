@@ -52,7 +52,17 @@ designpatterns/
 
 ## Docs site
 
-GitHub Pages documentation is planned (`*.github.io`). This README stays the repo entry point until that ships.
+Interactive GitHub Pages docs (dark / light, quizzes, code compare):
+
+**https://ardavanshamroshan.github.io/designpatterns/**
+
+Source lives in [`docs/`](docs/). Local preview:
+
+```bash
+cd docs && python -m http.server 8080
+```
+
+Then open `http://127.0.0.1:8080`.
 
 ## License
 

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Single Responsibility Principle — SOLID</title>
+    <meta
+      name="description"
+      content="Interactive lesson: Single Responsibility Principle with a Journal and PersistenceManager example in Python."
+    />
+    <meta name="theme-color" content="#f6f5f2" data-light="#f6f5f2" data-dark="#0e1014" />
+    <script>
+      (function () {
+        var K = "theme",
+          D = "dark",
+          L = "light";
+        function p(v) {
+          return v === D || v === L ? v : null;
+        }
+        var t = null;
+        try {
+          t = p(localStorage.getItem(K));
+        } catch (e) {}
+        if (!t) {
+          try {
+            t = matchMedia("(prefers-color-scheme: dark)").matches ? D : L;
+          } catch (e) {
+            t = L;
+          }
+        }
+        window.__initialTheme = t;
+        document.documentElement.classList.add(t);
+        document.documentElement.classList.remove(t === D ? L : D);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <script defer src="../assets/js/theme.js"></script>
+    <script defer src="../assets/js/interactive.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="brand" href="../index.html">design<span>patterns</span></a>
+        <ul class="nav-links">
+          <li><a href="./index.html" aria-current="page">SOLID</a></li>
+          <li><a href="../patterns/index.html">Catalog</a></li>
+          <li>
+            <a href="https://github.com/ardavanshamroshan/designpatterns" rel="noopener"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme" title="Toggle theme (F1)">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>/</span>
+          <a href="./index.html">SOLID</a>
+          <span>/</span>
+          <span>SRP</span>
+        </nav>
+
+        <aside class="lesson-nav" aria-label="On this page">
+          <strong>On this page</strong>
+          <ol>
+            <li><a href="#intent">Intent</a></li>
+            <li><a href="#problem">Problem</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#compare">Compare</a></li>
+            <li><a href="#structure">Structure</a></li>
+            <li><a href="#steps">Walkthrough</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#run">Run</a></li>
+          </ol>
+        </aside>
+
+        <article class="prose">
+          <p class="eyebrow">SOLID · S</p>
+          <h1>Single Responsibility Principle</h1>
+          <p class="aka">Also known as: Separation of Concerns (related idea)</p>
+
+          <section id="intent">
+            <h2>Intent</h2>
+            <p>
+              A class should have <strong>one primary reason to change</strong>. Put
+              different kinds of work in different places.
+            </p>
+            <div class="callout">
+              <p>
+                <strong>Responsibility</strong> ≈ a reason the class would need to
+                change — not “number of methods.”
+              </p>
+            </div>
+          </section>
+
+          <section id="problem">
+            <h2>Problem</h2>
+            <p>
+              You start a simple <code>Journal</code>: add entries, remove them, print
+              them. Then someone asks to save to disk. You add <code>save()</code> and
+              maybe <code>load()</code> on the same class.
+            </p>
+            <p>
+              Now the class changes when entry rules change <em>and</em> when file format
+              or I/O changes. Two reasons. Testing gets harder. Reuse gets messier.
+            </p>
+          </section>
+
+          <section id="solution">
+            <h2>Solution</h2>
+            <p>
+              Keep <code>Journal</code> focused on entries. Move persistence to a
+              separate collaborator — here, <code>PersistenceManager</code>.
+            </p>
+            <div class="flow" aria-hidden="true">
+              <div class="flow__node">Journal<br /><small style="font-weight: 400; color: var(--text-muted)">entries</small></div>
+              <span class="flow__arrow">→</span>
+              <div class="flow__node flow__node--accent">PersistenceManager<br /><small style="font-weight: 400">file I/O</small></div>
+              <span class="flow__arrow">→</span>
+              <div class="flow__node">journal.txt</div>
+            </div>
+            <p>
+              That second class is the <strong>fix</strong>, not the violation.
+            </p>
+          </section>
+
+          <section id="compare">
+            <h2>Compare code</h2>
+            <p>Toggle violation vs the repo’s compliant example.</p>
+            <div class="compare" data-compare>
+              <div class="compare__tabs" role="tablist">
+                <button type="button" class="compare__tab" data-compare-tab="bad" aria-selected="true">
+                  Violation
+                </button>
+                <button type="button" class="compare__tab" data-compare-tab="good" aria-selected="false">
+                  Compliant
+                </button>
+              </div>
+              <pre class="code compare__panel is-active" data-compare-panel="bad" role="tabpanel"><code><span class="token-comment"># Two reasons to change in one class</span>
+class Journal:
+    def add_entry(self, text): ...
+    def remove_entry(self, index): ...
+
+    def save(self, filename):  <span class="token-bad"># persistence mixed in</span>
+        with open(filename, "w") as f:
+            f.write(str(self))</code></pre>
+              <pre class="code compare__panel" data-compare-panel="good" role="tabpanel"><code><span class="token-comment"># From solid/single_responsibility/main.py</span>
+class Journal:
+    def add_entry(self, text): ...
+    def remove_entry(self, index): ...
+    <span class="token-good"># no save / load here</span>
+
+class PersistenceManager:
+    @staticmethod
+    def save_to_file(journal, filename):
+        with open(filename, "w") as f:
+            f.write(str(journal))</code></pre>
+            </div>
+          </section>
+
+          <section id="structure">
+            <h2>Structure</h2>
+            <div class="table-wrap">
+              <table class="simple">
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Responsibility</th>
+                    <th>Methods</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>Journal</code></td>
+                    <td>Manage diary entries</td>
+                    <td><code>add_entry</code>, <code>remove_entry</code>, <code>__str__</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>PersistenceManager</code></td>
+                    <td>Write a journal to disk</td>
+                    <td><code>save_to_file</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="steps">
+            <h2>Walkthrough</h2>
+            <p>Open each step when you’re ready.</p>
+            <div class="steps" data-steps>
+              <div class="step" data-step>
+                <button type="button" class="step__head" data-step-toggle aria-expanded="false">
+                  <span class="step__num">1</span>
+                  Create a journal and add entries
+                </button>
+                <div class="step__body">
+                  <p>
+                    <code>add_entry</code> stores numbered lines. Printing the journal
+                    joins them with newlines — still pure domain logic.
+                  </p>
+                </div>
+              </div>
+              <div class="step" data-step>
+                <button type="button" class="step__head" data-step-toggle aria-expanded="false">
+                  <span class="step__num">2</span>
+                  Save via PersistenceManager
+                </button>
+                <div class="step__body">
+                  <p>
+                    <code>save_to_file(journal, path)</code> only knows how to open a
+                    file and write <code>str(journal)</code>. Swap file for network later
+                    without touching <code>Journal</code>.
+                  </p>
+                </div>
+              </div>
+              <div class="step" data-step>
+                <button type="button" class="step__head" data-step-toggle aria-expanded="false">
+                  <span class="step__num">3</span>
+                  Read the file back to confirm
+                </button>
+                <div class="step__body">
+                  <p>
+                    The demo writes <code>journal.txt</code> next to
+                    <code>main.py</code> and prints its contents — proof the split works.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="quiz">
+            <h2>Quick check</h2>
+            <div
+              class="quiz"
+              data-quiz
+              data-answer="b"
+              data-ok="Yes — PersistenceManager isolates I/O so Journal keeps one reason to change."
+              data-no="Hint: look at which class owns saving in the compliant example."
+            >
+              <p class="quiz__q">
+                In the compliant example, which statement is true?
+              </p>
+              <div class="quiz__options">
+                <button type="button" class="quiz__opt" data-quiz-opt="a">
+                  <code>PersistenceManager</code> violates SRP because it exists at all.
+                </button>
+                <button type="button" class="quiz__opt" data-quiz-opt="b">
+                  <code>Journal</code> owns entries; <code>PersistenceManager</code> owns saving.
+                </button>
+                <button type="button" class="quiz__opt" data-quiz-opt="c">
+                  SRP means every class may have only one method.
+                </button>
+              </div>
+              <p class="quiz__feedback" data-quiz-feedback></p>
+            </div>
+          </section>
+
+          <section id="run">
+            <h2>Run locally</h2>
+            <pre class="code"><code>uv run srp</code></pre>
+            <p>
+              Source:
+              <a
+                href="https://github.com/ardavanshamroshan/designpatterns/blob/main/solid/single_responsibility/main.py"
+                rel="noopener"
+                >main.py</a
+              >
+              ·
+              <a
+                href="https://github.com/ardavanshamroshan/designpatterns/blob/main/solid/single_responsibility/README.md"
+                rel="noopener"
+                >tutorial README</a
+              >
+            </p>
+            <div class="callout">
+              <p>
+                Expected shape: numbered entries printed, then
+                <code>Journal saved to …/journal.txt</code> and the same lines in the file.
+              </p>
+            </div>
+          </section>
+
+          <section id="takeaway">
+            <h2>Takeaway</h2>
+            <ul>
+              <li>Domain object → business data and behavior</li>
+              <li>Persistence helper → how that data is stored</li>
+              <li>Mixing them couples your model to the filesystem</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn--ghost" href="./index.html">← SOLID hub</a>
+              <a class="btn btn--primary" href="../patterns/index.html">Pattern catalog</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>SRP lesson · interactive</span>
+        <span><kbd class="kbd">F1</kbd> theme</span>
+      </div>
+    </footer>
+  </body>
+</html>
