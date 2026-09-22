@@ -4,7 +4,7 @@ title: Single Responsibility
 
 # Single Responsibility Principle
 
-<p class="aka-line"><em>Also related: Separation of Concerns</em></p>
+<p class="lead">Also related: Separation of Concerns</p>
 
 ## Intent
 
@@ -32,19 +32,7 @@ Keep `Journal` focused on entries. Move persistence to `PersistenceManager`.
 
 That second class is the **fix**, not the violation.
 
-## Structure (analogy)
-
-Structural patterns often need a translator between worlds. The Adapter intent image below (from Refactoring.Guru) shows the same *shape* of thinking: keep incompatible concerns apart with a thin middle layer.
-
-![Adapter pattern intent illustration](/images/guru/adapter-intent.png)
-
-<p class="figure-cite">
-  Source:
-  <a href="https://refactoring.guru/design-patterns/adapter" rel="noopener">refactoring.guru/design-patterns/adapter</a>
-  · Illustration © Refactoring.Guru / Dmitry Zhart · used under their
-  <a href="https://refactoring.guru/content-usage-policy" rel="noopener">content usage policy</a>
-  (≤10 illustrations).
-</p>
+## Structure
 
 | Class | Responsibility | Methods |
 | --- | --- | --- |
@@ -53,8 +41,9 @@ Structural patterns often need a translator between worlds. The Adapter intent i
 
 ## Compare code
 
-<details>
-<summary><strong>Violation — persistence inside Journal</strong></summary>
+<div class="compare-block">
+
+<span class="compare-block__label compare-block__label--bad">Violation — persistence inside Journal</span>
 
 ```python
 class Journal:
@@ -66,10 +55,11 @@ class Journal:
             f.write(str(self))
 ```
 
-</details>
+</div>
 
-<details>
-<summary><strong>Compliant — this repo</strong></summary>
+<div class="compare-block">
+
+<span class="compare-block__label compare-block__label--good">Compliant — this repo</span>
 
 ```python
 class Journal:
@@ -84,7 +74,7 @@ class PersistenceManager:
             f.write(str(journal))
 ```
 
-</details>
+</div>
 
 ## Walkthrough
 
@@ -132,9 +122,3 @@ Source: [main.py](https://github.com/ardavanshamroshan/designpatterns/blob/main/
 - Domain object → business data and behavior
 - Persistence helper → how that data is stored
 - Mixing them couples your model to the filesystem
-
-<style>
-.aka-line { margin: -0.35rem 0 1rem; color: var(--text-faint); font-size: 0.95rem; }
-details { margin: 0.65rem 0; padding: 0.5rem 0.75rem; border: 1px solid var(--line); }
-details summary { cursor: pointer; }
-</style>

@@ -21,7 +21,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: `${base}favicon.svg`, type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#ebebeb' }],
+    ['meta', { name: 'theme-color', content: '#f4f6f8' }],
   ],
 
   themeConfig: {
@@ -72,8 +72,8 @@ export default defineConfig({
 
     footer: {
       message:
-        'Built by <a href="https://ardavanshamroshan.ir" target="_blank" rel="noopener">Ardavan ShamRoshan</a> · <a href="https://github.com/ardavanshamroshan" target="_blank" rel="noopener">GitHub</a> · <a href="/designpatterns/attribution">Attribution</a>',
-      copyright: '© Design Patterns tutorials · Illustrations © Refactoring.Guru (fair use ≤10)',
+        'Built by <a href="https://ardavanshamroshan.ir" target="_blank" rel="noopener">Ardavan ShamRoshan</a> · <a href="https://github.com/ardavanshamroshan" target="_blank" rel="noopener">GitHub</a>',
+      copyright: '© Design Patterns tutorials',
     },
 
     outline: {

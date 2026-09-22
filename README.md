@@ -6,8 +6,6 @@ Hands-on Python tutorials for classic **design patterns** and the **SOLID** prin
 
 **https://ardavanshamroshan.github.io/designpatterns/**
 
-VitePress site (same reader theme as [Database Engineering](https://ardavanshamroshan.github.io/database-engineering-fundamentals/)):
-
 ```bash
 cd docs-site
 npm install
@@ -33,7 +31,3 @@ uv run srp
 | **L** — Liskov Substitution | — | Planned | — |
 | **I** — Interface Segregation | — | Planned | — |
 | **D** — Dependency Inversion | — | Planned | — |
-
-## Attribution
-
-Guru illustrations: see [docs-site/attribution.md](docs-site/attribution.md) (≤10 under their usage policy).
