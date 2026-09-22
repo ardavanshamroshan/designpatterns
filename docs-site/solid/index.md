@@ -11,7 +11,7 @@ title: SOLID
 <ul class="catalog plain">
   <li><a href="./srp"><strong>S — Single Responsibility</strong><em>Ready</em></a></li>
   <li><a href="./ocp"><strong>O — Open / Closed</strong><em>Ready</em></a></li>
-  <li id="liskov"><a href="#liskov"><strong>L — Liskov Substitution</strong><em>Soon</em></a></li>
+  <li><a href="./lsp"><strong>L — Liskov Substitution</strong><em>Ready</em></a></li>
   <li id="interface-segregation"><a href="#interface-segregation"><strong>I — Interface Segregation</strong><em>Soon</em></a></li>
   <li id="dependency-inversion"><a href="#dependency-inversion"><strong>D — Dependency Inversion</strong><em>Soon</em></a></li>
 </ul>
@@ -20,9 +20,9 @@ title: SOLID
 
 See the full lesson: [Open/Closed Principle](./ocp).
 
-## Liskov Substitution {#liskov}
+## Liskov Substitution
 
-Subtypes must be usable wherever their base type is expected. Tutorial coming.
+See the full lesson: [Liskov Substitution Principle](./lsp).
 
 ## Interface Segregation {#interface-segregation}
 

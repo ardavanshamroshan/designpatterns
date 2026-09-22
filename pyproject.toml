@@ -14,6 +14,7 @@ dev = [
 [project.scripts]
 srp = "solid.single_responsibility.main:main"
 ocp = "solid.open_closed.main:main"
+lsp = "solid.liskov.main:main"
 
 [build-system]
 requires = ["hatchling"]

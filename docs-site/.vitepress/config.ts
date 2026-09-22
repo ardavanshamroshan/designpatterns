@@ -47,7 +47,7 @@ export default defineConfig({
         items: [
           { text: 'Single Responsibility', link: '/solid/srp' },
           { text: 'Open / Closed', link: '/solid/ocp' },
-          { text: 'Liskov Substitution', link: '/solid/#liskov' },
+          { text: 'Liskov Substitution', link: '/solid/lsp' },
           { text: 'Interface Segregation', link: '/solid/#interface-segregation' },
           { text: 'Dependency Inversion', link: '/solid/#dependency-inversion' },
         ],

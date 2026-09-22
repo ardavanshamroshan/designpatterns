@@ -21,6 +21,7 @@ npm run docs:dev
 uv sync
 uv run srp
 uv run ocp
+uv run lsp
 ```
 
 ## SOLID
@@ -29,6 +30,6 @@ uv run ocp
 |-----------|--------|--------|-----|
 | **S** — Single Responsibility | [`solid/single_responsibility/`](solid/single_responsibility/) | Ready | `uv run srp` |
 | **O** — Open/Closed | [`solid/open_closed/`](solid/open_closed/) | Ready | `uv run ocp` |
-| **L** — Liskov Substitution | — | Planned | — |
+| **L** — Liskov Substitution | [`solid/liskov/`](solid/liskov/) | Ready | `uv run lsp` |
 | **I** — Interface Segregation | — | Planned | — |
 | **D** — Dependency Inversion | — | Planned | — |
