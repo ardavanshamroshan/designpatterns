@@ -10,15 +10,15 @@ title: SOLID
 
 <ul class="catalog plain">
   <li><a href="./srp"><strong>S — Single Responsibility</strong><em>Ready</em></a></li>
-  <li id="open-closed"><a href="#open-closed"><strong>O — Open / Closed</strong><em>Soon</em></a></li>
+  <li><a href="./ocp"><strong>O — Open / Closed</strong><em>Ready</em></a></li>
   <li id="liskov"><a href="#liskov"><strong>L — Liskov Substitution</strong><em>Soon</em></a></li>
   <li id="interface-segregation"><a href="#interface-segregation"><strong>I — Interface Segregation</strong><em>Soon</em></a></li>
   <li id="dependency-inversion"><a href="#dependency-inversion"><strong>D — Dependency Inversion</strong><em>Soon</em></a></li>
 </ul>
 
-## Open / Closed {#open-closed}
+## Open / Closed
 
-Open for extension, closed for modification. Tutorial coming.
+See the full lesson: [Open/Closed Principle](./ocp).
 
 ## Liskov Substitution {#liskov}
 
