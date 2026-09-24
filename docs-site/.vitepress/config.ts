@@ -4,6 +4,7 @@ const repo = 'https://github.com/ardavanshamroshan/designpatterns'
 const base = '/designpatterns/'
 
 export default defineConfig({
+  lang: 'en-US',
   title: 'Design Patterns',
   description: 'SOLID principles and classic design patterns — interactive Python tutorials.',
   base,
@@ -14,14 +15,16 @@ export default defineConfig({
 
   markdown: {
     theme: {
-      light: 'github-dark',
-      dark: 'github-dark',
+      light: 'material-theme-palenight',
+      dark: 'material-theme-palenight',
     },
+    lineNumbers: true,
   },
 
   head: [
+    ['link', { rel: 'stylesheet', href: `${base}fonts/fonts.css` }],
     ['link', { rel: 'icon', href: `${base}favicon.svg`, type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#f4f6f8' }],
+    ['meta', { name: 'theme-color', content: '#0b6bcb' }],
   ],
 
   themeConfig: {

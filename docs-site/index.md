@@ -1,56 +1,25 @@
 ---
-title: Home
+layout: home
+
+hero:
+  name: Design Patterns
+  text: SOLID & classic patterns
+  tagline: Short Python lessons you can run — principles first, then the catalog.
+  actions:
+    - theme: brand
+      text: Get started
+      link: /solid/srp
+    - theme: alt
+      text: GitHub
+      link: https://github.com/ardavanshamroshan/designpatterns
+
+features:
+  - title: SOLID
+    details: SRP, OCP, LSP, ISP, DIP — interactive walkthroughs
+  - title: Creational
+    details: Factory, Builder, Singleton, and more
+  - title: Structural
+    details: Adapter, Decorator, Facade, Proxy
+  - title: Behavioral
+    details: Observer, Strategy, Command, and peers
 ---
-
-# Design Patterns
-
-<p class="lead">SOLID principles and classic patterns. Short Python lessons you can run.</p>
-
-## Start here
-
-<ul class="catalog plain">
-  <li><a href="./solid/srp"><strong>Single Responsibility</strong><em>Ready · interactive</em></a></li>
-  <li><a href="./solid/ocp"><strong>Open / Closed</strong><em>Ready · interactive</em></a></li>
-  <li><a href="./solid/lsp"><strong>Liskov Substitution</strong><em>Ready · interactive</em></a></li>
-  <li><a href="./solid/isp"><strong>Interface Segregation</strong><em>Ready · interactive</em></a></li>
-  <li><a href="./solid/dip"><strong>Dependency Inversion</strong><em>Ready · interactive</em></a></li>
-  <li><a href="./solid/"><strong>SOLID hub</strong><em>5 principles</em></a></li>
-  <li><a href="./patterns/"><strong>Pattern catalog</strong><em>Creational · Structural · Behavioral</em></a></li>
-</ul>
-
-## Featured
-
-<ul class="pattern-grid">
-  <li>
-    <a class="pattern-card" href="./patterns/#creational">
-      <img src="/images/patterns/factory-method.png" alt="Factory Method" width="140" height="100" loading="lazy" />
-      <strong>Factory Method</strong>
-      <em>Creational</em>
-    </a>
-  </li>
-  <li>
-    <a class="pattern-card" href="./patterns/#structural">
-      <img src="/images/patterns/adapter.png" alt="Adapter" width="140" height="100" loading="lazy" />
-      <strong>Adapter</strong>
-      <em>Structural</em>
-    </a>
-  </li>
-  <li>
-    <a class="pattern-card" href="./patterns/#behavioral">
-      <img src="/images/patterns/observer.png" alt="Observer" width="140" height="100" loading="lazy" />
-      <strong>Observer</strong>
-      <em>Behavioral</em>
-    </a>
-  </li>
-</ul>
-
-## Run examples
-
-```bash
-uv sync
-uv run srp
-uv run ocp
-uv run lsp
-uv run isp
-uv run dip
-```
